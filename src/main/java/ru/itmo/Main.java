@@ -1,7 +1,10 @@
 package ru.itmo;
 
+import ru.itmo.series.Series;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        double res = Series.cos(Series.PI);
+        System.out.println(res);
     }
 }
