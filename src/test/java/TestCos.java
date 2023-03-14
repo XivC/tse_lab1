@@ -50,7 +50,4 @@ public class TestCos {
         assertTrue(Math.abs(Series.cos(x) - expected) <= 0.1);
 
     }
-
-
-
 }
