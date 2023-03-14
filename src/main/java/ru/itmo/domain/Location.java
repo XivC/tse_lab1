@@ -10,4 +10,8 @@ public class Location {
         this.name = name;
         this.coordinate = 0;
     }
+
+    public int getCoordinate() {
+        return coordinate;
+    }
 }

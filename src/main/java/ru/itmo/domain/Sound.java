@@ -1,6 +1,6 @@
 package ru.itmo.domain;
 
-enum Sound {
+public enum Sound {
     CRASH,
     PITY_CREAK
 }

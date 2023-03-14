@@ -8,4 +8,8 @@ public class Planet {
         this.isInhabited = isInhabited;
         this.isDestroyed = false;
     }
+
+    public boolean isDestroyed() {
+        return isDestroyed;
+    }
 }

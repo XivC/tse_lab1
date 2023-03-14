@@ -4,7 +4,11 @@ public class Chair {
 
     int resistance;
 
-    Chair(int resistance) {
+    public Chair(int resistance) {
         this.resistance = resistance;
+    }
+
+    public int getResistance() {
+        return resistance;
     }
 }
