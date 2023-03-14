@@ -15,7 +15,7 @@ public class TestPerson {
     @BeforeEach
     void init() {
         person = new Person(
-                "Кек",
+                "Вогон Джельц",
                 new Location("Мостик"),
                 0x00FF00,
                 0
