@@ -9,24 +9,24 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestCos {
+public class TestSin {
 
-    private static Stream<Arguments> cosValues() {
+    private static Stream<Arguments> values() {
         return Stream.of(
-                Arguments.of(0.0, 1.0),
+                Arguments.of(0.0, 0.0),
                 Arguments.of(0.7853981, 0.707106781), // pi/4
-                Arguments.of(1.5707963, 0),  // pi/2
-                Arguments.of(2.3561944, -0.707106781), // 3pi/4
-                Arguments.of(3.1415926, -1), // pi
+                Arguments.of(1.5707963, 1),  // pi/2
+                Arguments.of(2.3561944, 0.707106781), // 3pi/4
+                Arguments.of(3.1415926, 0), // pi
                 Arguments.of(3.92699081, -0.707106781), // 5pi/4
-                Arguments.of(4.71238, 0), // 3pi/2
-                Arguments.of(5.497787143, 0.707106781) // 7pi/4
+                Arguments.of(4.71238, -1), // 3pi/2
+                Arguments.of(5.497787143, -0.707106781) // 7pi/4
         );
     }
 
     @ParameterizedTest
-    @MethodSource("cosValues")
-    public void testCosPrecision(double x, double expected){
+    @MethodSource("values")
+    public void testSinPrecision(double x, double expected){
         assertEquals(expected, Cos.of(x), Precision.E);
     }
 }
