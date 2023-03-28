@@ -2,6 +2,9 @@ package ru.itmo.func;
 
 public class Ln{
     public static Double of(Double x){
+
+        assert x > 0;
+
         double result = 0;
         double term = (x - 1) / x;
         double numerator = term;
