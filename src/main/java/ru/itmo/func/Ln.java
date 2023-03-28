@@ -1,5 +1,7 @@
 package ru.itmo.func;
 
-public class Ln implements Offable{
-    public static Double of()
+public class Ln{
+    public static Double of(Double x){
+        return x;
+    }
 }
