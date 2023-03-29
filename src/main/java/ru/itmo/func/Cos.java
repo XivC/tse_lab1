@@ -2,6 +2,7 @@ package ru.itmo.func;
 
 public class Cos {
 
+
     public static Double of(Double x) {
         x = Math.abs(x) % (2 * Math.PI);
         double y = Math.sqrt(1 -  Sin.of(x) * Sin.of(x));
