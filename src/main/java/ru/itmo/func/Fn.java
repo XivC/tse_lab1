@@ -7,8 +7,8 @@ public class Fn {
             double term2 = Csc.of(x)/(Cos.of(x) * Ctg.of(x));
             return term1 * term1 * term1 * (term2 + Cos.of(x));
         }
-        double term1 = Ln.of(x) + Log2.of(x);
-        double term2 = term1 * term1 * term1 / (Ln.of(x) - Log3.of(x));
-        return term2 * term2 * term2 + Log3.of(x);
+        double term1 = Ln.of(x) + Ln2.of(x);
+        double term2 = term1 * term1 * term1 / (Ln.of(x) - Ln3.of(x));
+        return term2 * term2 * term2 + Ln3.of(x);
     }
 }

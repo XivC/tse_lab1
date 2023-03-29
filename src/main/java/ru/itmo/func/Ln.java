@@ -1,6 +1,6 @@
 package ru.itmo.func;
 
-public class Ln{
+public class Ln {
     public static Double of(Double x){
 
         assert x > 0;
