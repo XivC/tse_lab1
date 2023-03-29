@@ -5,15 +5,13 @@ public class Ln {
 
         assert x > 0;
 
-        double result = 0;
-        double term = (x - 1) / x;
-        double numerator = term;
-
-        for (int i = 1; i <= 1000; i++) {
-            result += numerator / i;
-            numerator *= -term;
+        int numTerms = 1000;
+        double sum = 0;
+        for (int i = 1; i <= numTerms; i++) {
+            double term = (i % 2 == 0) ? -1.0/i : 1.0/i;
+            sum += term * Math.pow((x-1), i);
         }
 
-        return result;
+       return sum;
     }
 }

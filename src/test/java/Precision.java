@@ -1,3 +1,3 @@
 public class Precision {
-    public static Double E = 0.1;
+    public static Double E = 0.01;
 }

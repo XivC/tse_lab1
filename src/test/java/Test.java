@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,78 +30,194 @@ public class Test {
     MockedStatic<Tg> tg = Mockito.mockStatic(Tg.class);
 
     final Map<Double, Double> cosTable = new HashMap<>() {{
-        put(0.7853981, 0.7071068260153117);
-        put(2.3561944, -0.707106717410926);
-        put(3.1415926, -0.9999999999999986);
-        put(3.92699081, -0.7071067861272734);
-        put(4.71238, -8.98038469016786e-06);
-        put(5.497787143, 0.7071067806334924);
+        put(-0.9, 0.6216099682706644);
+        put(-0.8, 0.6967067093471654);
+        put(-0.7, 0.7648421872844885);
+        put(-0.6, 0.8253356149096783);
+        put(-0.5, 0.8775825618903728);
+        put(-0.4, 0.9210609940028851);
+        put(-0.3, 0.955336489125606);
+        put(-0.2, 0.9800665778412416);
+        put(-0.1, 0.9950041652780258);
+        put(0.0, 1.0);
+        put(0.1, 0.9950041652780258);
+        put(0.2, 0.9800665778412416);
+        put(0.3, 0.955336489125606);
+        put(0.4, 0.9210609940028851);
+        put(0.5, 0.8775825618903728);
+        put(0.6, 0.8253356149096783);
+        put(0.7, 0.7648421872844885);
+        put(0.8, 0.6967067093471654);
+        put(0.9, 0.6216099682706644);
     }};
     final Map<Double, Double> sinTable = new HashMap<>() {{
-        put(0.7853981, 0.7071067363577804);
-        put(2.3561944, 0.7071068449621633);
-        put(3.1415926, 5.3589793170057245e-08);
-        put(3.92699081, -0.7071067762458216);
-        put(4.71238, -0.9999999999596764);
-        put(5.497787143, -0.7071067817396027);
+        put(-0.9, -0.7833269096274834);
+        put(-0.8, -0.7173560908995228);
+        put(-0.7, -0.644217687237691);
+        put(-0.6, -0.5646424733950354);
+        put(-0.5, -0.479425538604203);
+        put(-0.4, -0.3894183423086505);
+        put(-0.3, -0.29552020666133955);
+        put(-0.2, -0.19866933079506122);
+        put(-0.1, -0.09983341664682815);
+        put(0.0, 0.0);
+        put(0.1, 0.09983341664682815);
+        put(0.2, 0.19866933079506122);
+        put(0.3, 0.29552020666133955);
+        put(0.4, 0.3894183423086505);
+        put(0.5, 0.479425538604203);
+        put(0.6, 0.5646424733950354);
+        put(0.7, 0.644217687237691);
+        put(0.8, 0.7173560908995228);
+        put(0.9, 0.7833269096274834);
     }};
     final Map<Double, Double> tgTable = new HashMap<>() {{
-        put(0.7853981, 0.9999998732051113);
-        put(2.3561944, -1.0000001803847058);
-        put(3.1415926, -5.3589793170057325e-08);
-        put(3.92699081, 0.999999986025517);
-        put(4.71238, 111353.80437037653);
-        put(5.497787143, -1.0000000015642763);
+        put(-0.9, -1.260158217550339);
+        put(-0.8, -1.0296385570503641);
+        put(-0.7, -0.8422883804630793);
+        put(-0.6, -0.6841368083416923);
+        put(-0.5, -0.5463024898437905);
+        put(-0.4, -0.4227932187381618);
+        put(-0.3, -0.3093362496096232);
+        put(-0.2, -0.20271003550867248);
+        put(-0.1, -0.10033467208545054);
+        put(0.0, 0.0);
+        put(0.1, 0.10033467208545054);
+        put(0.2, 0.20271003550867248);
+        put(0.3, 0.3093362496096232);
+        put(0.4, 0.4227932187381618);
+        put(0.5, 0.5463024898437905);
+        put(0.6, 0.6841368083416923);
+        put(0.7, 0.8422883804630793);
+        put(0.8, 1.0296385570503641);
+        put(0.9, 1.260158217550339);
     }};
     final Map<Double, Double> ctgTable = new HashMap<>() {{
-        put(0.7853981, 1.0000001267949048);
-        put(2.3561944, -0.9999998196153267);
-        put(3.1415926, -18660269.817177396);
-        put(3.92699081, 1.0000000139744831);
-        put(4.71238, 8.980384690529982e-06);
-        put(5.497787143, -0.9999999984357237);
+        put(-0.9, -0.7935511478423173);
+        put(-0.8, -0.9712146006504743);
+        put(-0.7, -1.1872418321266796);
+        put(-0.6, -1.4616959470781021);
+        put(-0.5, -1.830487721712452);
+        put(-0.4, -2.3652224200391103);
+        put(-0.3, -3.232728143765828);
+        put(-0.2, -4.933154875586894);
+        put(-0.1, -9.96664442325924);
+        put(0.0, Double.POSITIVE_INFINITY);
+        put(0.1, 9.96664442325924);
+        put(0.2, 4.933154875586894);
+        put(0.3, 3.232728143765828);
+        put(0.4, 2.3652224200391103);
+        put(0.5, 1.830487721712452);
+        put(0.6, 1.4616959470781021);
+        put(0.7, 1.1872418321266796);
+        put(0.8, 0.9712146006504743);
+        put(0.9, 0.7935511478423173);
     }};
     final Map<Double, Double> cscTable = new HashMap<>() {{
-        put(0.7853981, 1.414213652030635);
-        put(2.3561944, 1.4142134348218751);
-        put(3.1415926, 18660269.817177422);
-        put(3.92699081, -1.4142135722545468);
-        put(4.71238, -1.0000000000403237);
-        put(5.497787143, -1.4142135612669846);
+        put(-0.9, -1.2766062134588954);
+        put(-0.8, -1.394007819388636);
+        put(-0.7, -1.552270326957104);
+        put(-0.6, -1.7710321966877254);
+        put(-0.5, -2.085829642933488);
+        put(-0.4, -2.567932455547783);
+        put(-0.3, -3.383863361824123);
+        put(-0.2, -5.033489547672344);
+        put(-0.1, -10.016686131634776);
+        put(0.0, Double.POSITIVE_INFINITY);
+        put(0.1, 10.016686131634776);
+        put(0.2, 5.033489547672344);
+        put(0.3, 3.383863361824123);
+        put(0.4, 2.567932455547783);
+        put(0.5, 2.085829642933488);
+        put(0.6, 1.7710321966877254);
+        put(0.7, 1.552270326957104);
+        put(0.8, 1.394007819388636);
+        put(0.9, 1.2766062134588954);
     }};
     final Map<Double, Double> secTable = new HashMap<>() {{
-        put(0.7853981, 1.4142134727155724);
-        put(2.3561944, -1.4142136899243496);
-        put(3.1415926, -1.0000000000000016);
-        put(3.92699081, -1.4142135524916433);
-        put(4.71238, -111353.80437486671);
-        put(5.497787143, 1.4142135634792052);
+        put(-0.9, 1.6087258104660498);
+        put(-0.8, 1.43532419967224);
+        put(-0.7, 1.3074592597335937);
+        put(-0.6, 1.2116283145123166);
+        put(-0.5, 1.139493927324549);
+        put(-0.4, 1.0857044283832387);
+        put(-0.3, 1.0467516015380856);
+        put(-0.2, 1.0203388449411928);
+        put(-0.1, 1.0050209184004553);
+        put(0.0, 1.0);
+        put(0.1, 1.0050209184004553);
+        put(0.2, 1.0203388449411928);
+        put(0.3, 1.0467516015380856);
+        put(0.4, 1.0857044283832387);
+        put(0.5, 1.139493927324549);
+        put(0.6, 1.2116283145123166);
+        put(0.7, 1.3074592597335937);
+        put(0.8, 1.43532419967224);
+        put(0.9, 1.6087258104660498);
     }};
     final Map<Double, Double> lnTable = new HashMap<>() {{
-        put(0.7853981, -0.24156455599063195);
-        put(2.3561944, 0.8570477751187985);
-        put(3.1415926, 1.144729868791239);
-        put(3.92699081, 1.3678734353843234);
-        put(4.71238, 1.5501930882589297);
-        put(5.497787143, 1.7043456736425586);
+        put(-0.9, Double.NaN);
+        put(-0.8, Double.NaN);
+        put(-0.7, Double.NaN);
+        put(-0.6, Double.NaN);
+        put(-0.5, Double.NaN);
+        put(-0.4, Double.NaN);
+        put(-0.3, Double.NaN);
+        put(-0.2, Double.NaN);
+        put(-0.1, Double.NaN);
+        put(0.0, Double.NaN);
+        put(0.1, -2.3025850929940455);
+        put(0.2, -1.6094379124341003);
+        put(0.3, -1.2039728043259361);
+        put(0.4, -0.916290731874155);
+        put(0.5, -0.6931471805599453);
+        put(0.6, -0.5108256237659907);
+        put(0.7, -0.35667494393873245);
+        put(0.8, -0.2231435513142097);
+        put(0.9, -0.10536051565782628);
     }};
     final Map<Double, Double> ln2Table = new HashMap<>() {{
-        put(0.7853981, -0.34850398698222906);
-        put(2.3561944, 1.2364585749688102);
-        put(3.1415926, 1.6514961048625945);
-        put(3.92699081, 1.9734242217927134);
-        put(4.71238, 2.236455880851505);
-        put(5.497787143, 2.4588510513246793);
+        put(-0.9, Double.NaN);
+        put(-0.8, Double.NaN);
+        put(-0.7, Double.NaN);
+        put(-0.6, Double.NaN);
+        put(-0.5, Double.NaN);
+        put(-0.4, Double.NaN);
+        put(-0.3, Double.NaN);
+        put(-0.2, Double.NaN);
+        put(-0.1, Double.NaN);
+        put(0.0, Double.NaN);
+        put(0.1, -3.321928094887362);
+        put(0.2, -2.321928094887362);
+        put(0.3, -1.7369655941662063);
+        put(0.4, -1.3219280948873622);
+        put(0.5, -1.0);
+        put(0.6, -0.7369655941662062);
+        put(0.7, -0.5145731728297583);
+        put(0.8, -0.3219280948873623);
+        put(0.9, -0.15200309344504995);
     }};
     final Map<Double, Double> ln3Table = new HashMap<>() {{
-        put(0.7853981, -0.21988153462536816);
-        put(2.3561944, 0.7801185040063867);
-        put(3.1415926, 1.0419780304651785);
-        put(3.92699081, 1.2450920579476217);
-        put(4.71238, 1.4110465577790767);
-        put(5.497787143, 1.5513622878811986);
+        put(-0.9, Double.NaN);
+        put(-0.8, Double.NaN);
+        put(-0.7, Double.NaN);
+        put(-0.6, Double.NaN);
+        put(-0.5, Double.NaN);
+        put(-0.4, Double.NaN);
+        put(-0.3, Double.NaN);
+        put(-0.2, Double.NaN);
+        put(-0.1, Double.NaN);
+        put(0.0, Double.NaN);
+        put(0.1, -2.0959032742893844);
+        put(0.2, -1.4649735207179269);
+        put(0.3, -1.0959032742893846);
+        put(0.4, -0.8340437671464696);
+        put(0.5, -0.6309297535714574);
+        put(0.6, -0.4649735207179272);
+        put(0.7, -0.32465952512796237);
+        put(0.8, -0.20311401357501224);
+        put(0.9, -0.09590327428938458);
     }};
-
 
     @BeforeAll
     void doMock() {
@@ -115,20 +232,92 @@ public class Test {
         ln3.when((() -> Ln3.of(any(Double.class)))).thenAnswer((x) -> ln3Table.get(x.getArgument(0, Double.class)));
     }
 
-    private static Stream<Arguments> cosValues() {
+    private static Stream<Arguments> fnValues() {
         return Stream.of(
-                Arguments.of(0.7853981, 0.707106781), // pi/4
-                Arguments.of(2.3561944, -0.707106781), // 3pi/4
-                Arguments.of(3.1415926, -1), // pi
-                Arguments.of(3.92699081, -0.707106781), // 5pi/4
-                Arguments.of(4.71238, 0), // 3pi/2
-                Arguments.of(5.497787143, 0.707106781) // 7pi/4
+                Arguments.of(-0.9, -1.335747),
+                Arguments.of(-0.8, -1.515089),
+                Arguments.of(-0.7, -1.667577),
+                Arguments.of(-0.6, -1.790705),
+                Arguments.of(-0.5, -1.883594),
+                Arguments.of(-0.4, -1.947220),
+                Arguments.of(-0.3, -1.984537),
+                Arguments.of(-0.2, -2.000514),
+                Arguments.of(-0.1, -2.002320),
+                Arguments.of(0.0, Double.NaN),
+                Arguments.of(0.1, -10151970560.936403),
+                Arguments.of(0.2, -47144218.941045),
+                Arguments.of(0.3, -606130.252194),
+                Arguments.of(0.4, -10089.051282),
+                Arguments.of(0.5, -153.985575),
+                Arguments.of(0.6, -2.040425),
+                Arguments.of(0.7, -0.331861),
+                Arguments.of(0.8, -0.203120),
+                Arguments.of(0.9, -0.095903)
         );
     }
 
+
+
     @ParameterizedTest
-    @MethodSource("cosValues")
-    public void testCosPrecision(double x, double expected){
-        assertEquals(expected, Cos.of(x), Precision.E);
+    @MethodSource("fnValues")
+    public void testCos(double x, Double expected){
+        cos.when((() -> Cos.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testSin(double x, Double expected) {
+        sin.when((() -> Sin.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testTg(double x, Double expected) {
+        tg.when((() -> Tg.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testCtg(double x, Double expected) {
+        ctg.when((() -> Ctg.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testCsc(double x, Double expected) {
+        csc.when((() -> Csc.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testSec(double x, Double expected) {
+        sec.when((() -> Sec.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testLn(double x, Double expected) {
+        ln.when((() -> Ln.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testLn2(double x, Double expected) {
+        ln2.when((() -> Ln2.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
+    }
+
+    @ParameterizedTest
+    @MethodSource("fnValues")
+    public void testLn3(double x, Double expected) {
+        ln3.when((() -> Ln3.of(any(Double.class)))).thenCallRealMethod();
+        assertEquals(expected, Fn.of(x), expected.isInfinite() || expected.isNaN() ? 0 : Precision.E * Math.abs(expected));
     }
 }
